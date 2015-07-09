@@ -1,0 +1,82 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Pesquisa de Empresas</ui:define>
+
+	<ui:define name="corpo">
+		<h:form>
+			<h1>Pesquisa de Empresas</h1>
+
+			<p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:commandButton value="Pesquisar" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:button value="Novo" outcome="/empresa/CadastroEmpresa"/>
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+
+				<p:outputLabel value="Nome" />
+				<p:inputText size="40" />
+
+				<p:outputLabel value="CNPJ" />
+				<p:inputText size="40" />
+
+				<p:outputLabel value="Email" />
+				<p:inputText size="40" />
+
+			</p:panelGrid>
+			<p:dataTable id="empresaTable"
+				value="#{pesquisaEmpresaBean.empresaFiltrados}" var="empresa"
+				style="margin-top: 20px" emptyMessage="Nenhum pedido encontrado."
+				rows="20" paginator="true" paginatorAlwaysVisible="false"
+				paginatorPosition="bottom">
+				
+				<p:column headerText="Nome"
+					style="text-align: center; width: 100px">
+					<h:outputText value="SoftBlue" />
+				</p:column>
+				<p:column headerText="Telefone">
+					<h:outputText value="(11)4545-7878" />
+				</p:column>
+				<p:column headerText="Celular">
+					<h:outputText value="(11)97876-5454" />
+				</p:column>
+				<p:column headerText="Numero do Fax"
+					style="text-align: center; width: 140px">
+					<h:outputText value="(11)4545-7878" />
+				</p:column>
+				<p:column headerText="CNPJ"
+					style="text-align: right; width: 120px">
+					<h:outputText value="CNPJ: 00.776.574/0006-60" />
+				</p:column>
+				
+				<p:column headerText="Cep"
+					style="text-align: right; width: 120px">
+					<h:outputText value="560400-000" />
+				</p:column>
+				
+				
+				<p:column headerText="Pais"
+					style="text-align: right; width: 120px">
+					<h:outputText value="EUA" />
+				</p:column>
+				
+				<p:column headerText="Email"
+					style="text-align: right; width: 120px">
+					<h:outputText value="BlueDesk.outlook.com" />
+				</p:column>
+				
+			</p:dataTable>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>

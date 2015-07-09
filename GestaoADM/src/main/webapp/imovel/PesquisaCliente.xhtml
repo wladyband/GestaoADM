@@ -1,0 +1,92 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Pesquisa de Cliente</ui:define>
+
+	<ui:define name="corpo">
+		<h:form>
+			<h1>Pesquisa de Cliente</h1>
+
+			<p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:commandButton value="Pesquisar" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:button value="Novo" outcome="/cliente/CadastroCliente"/>
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+
+				<p:outputLabel value="Nome" />
+				<p:inputText size="40" />
+				
+				<p:outputLabel value="Código do Cliente" />
+				<p:inputText size="40" />
+				
+				<p:outputLabel value="CPF" />
+				<p:inputText size="40" />
+				
+				
+				<p:outputLabel value="Email" />
+				<p:inputText size="40" />
+
+			</p:panelGrid>
+			<p:dataTable id="clienteTable"
+				value="#{pesquisaClienteBean.clientesFiltrados}" var="cliente"
+				style="margin-top: 20px" emptyMessage="Nenhum pedido encontrado."
+				rows="20" paginator="true" paginatorAlwaysVisible="false"
+				paginatorPosition="bottom">
+				
+				
+				
+				<p:column headerText="Código do Cliente"
+					style="text-align: center; width: 100px">
+					<h:outputText value="RJ777" />
+				</p:column>
+				<p:column headerText="Nome"
+					style="text-align: center; width: 100px">
+					<h:outputText value="SoftBlue" />
+				</p:column>
+				<p:column headerText="Telefone">
+					<h:outputText value="(11)4545-7878" />
+				</p:column>
+				<p:column headerText="Celular">
+					<h:outputText value="(11)97876-5454" />
+				</p:column>
+				<p:column headerText="Numero do Fax"
+					style="text-align: center; width: 140px">
+					<h:outputText value="(11)4545-7878" />
+				</p:column>
+				<p:column headerText="CPF"
+					style="text-align: right; width: 120px">
+					<h:outputText value="106.021.017-58" />
+				</p:column>
+				
+				<p:column headerText="Cep"
+					style="text-align: right; width: 120px">
+					<h:outputText value="560400-000" />
+				</p:column>
+				
+				
+				<p:column headerText="Pais"
+					style="text-align: right; width: 120px">
+					<h:outputText value="EUA" />
+				</p:column>
+				
+				<p:column headerText="Email"
+					style="text-align: right; width: 120px">
+					<h:outputText value="BlueDesk.outlook.com" />
+				</p:column>
+				
+			</p:dataTable>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>
